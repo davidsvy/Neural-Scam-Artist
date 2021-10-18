@@ -18,7 +18,7 @@ using MinHash and LSH. The deduplicated dataset is used for fine-tuning GPT-2.
 
 
 <p align="center">
-  <img src="https://github.com/davidsvy/Neural-Scam-Artist/blob/main/assets/comic.jpg?raw=true" />
+  <img src="https://github.com/davidsvy/Neural-Scam-Artist/blob/master/assets/comic.jpg?raw=true" />
 </p>
 
 
