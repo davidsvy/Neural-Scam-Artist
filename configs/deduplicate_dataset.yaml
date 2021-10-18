@@ -1,0 +1,12 @@
+model_params:
+  n_perm: 1024 # Number of permutations for MinHash. Larger values lead to more accurate results
+  # but also to slower performance.
+  n_ngram: 5 # ngram size used to calu=culate the MinHash value of a text.
+  min_len: 10 # Texts with less than min_len words are discarded.
+
+deduplication_params:
+  source_file: "datasets/dataset.csv" # Path to unprocessed dataset
+  target_file: "datasets/deduplicated_dataset.csv" # Path to csv file where the deduplicated
+  # dataset will be stored
+  n_texts: -1 # Only the first n_texts samples from source_file will be deduplicated. If
+  # n_texts == -1, all samples will be deduplicated.

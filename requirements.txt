@@ -1,0 +1,13 @@
+aiohttp==3.7.4.post0
+numpy==1.19.5
+datasketch==1.5.3
+textstat==0.7.2
+nltk==3.2.5
+torch==1.9.0+cu111
+nest_asyncio==1.5.1
+tqdm==4.62.3
+requests==2.23.0
+transformers==4.11.3
+beautifulsoup4==4.10.0
+PyYAML==6.0
+scikit_learn==1.0

@@ -1,0 +1,11 @@
+model_params:
+  batch_size: 100 # Number of urls that can be concurrently accessed for faster computation
+
+scraping_params:
+  from_csv: False # If True, the scraper reads urls from source_file. If False, urls are
+  # collected manually and stored inside source_file.
+  source_file: "datasets/saved_urls.csv" # Path to csv file containing thread urls.
+  target_file: "datasets/dataset.csv" # Path to csv file where the dataset will be stored.
+  n_topics: 5 # Only the first n_topics forum topics will be scraped for urls that will be
+  # stored inside source_file. If from_csv == True, this param changes nothing.
+  n_urls: -1 # Maximum number of urls to scrape. If n_urls==-1, all urls will be scraped.

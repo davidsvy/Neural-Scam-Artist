@@ -1,0 +1,22 @@
+gen_args: # These are fed directly into
+  # https://huggingface.co/transformers/main_classes/model.html#transformers.generation_utils.GenerationMixin.generate
+  max_length: 300
+  do_sample: True
+  temperature: 1.0
+  top_k: 70
+  top_p: 0.93
+  repetition_penalty: null
+  num_return_sequences: 4 # How many sequences per prefix to generate
+
+other_args:
+  checkpoint_dir: "checkpoints/checkpoint-39303"
+  target_file: "generated/samples.txt"
+  n_batches: 10 # A batch corresponds to a single prefix. In total n_batches * num_return_sequences
+  # will be generated. If the number of provided prefixes is lower than n_batches, then the
+  # ramaining sequences will be generated without a specified prefix.
+
+# One prefix per line. For each prefix num_return_sequences will be generated
+prefixes: |
+  Hello
+  Attention
+  Dear

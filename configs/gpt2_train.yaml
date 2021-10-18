@@ -1,0 +1,45 @@
+custom_args:
+  # These args are not part of the Huggingface library
+  source_file: "datasets/deduplicated_dataset.csv" # Path to dataset file
+  max_len: 512 # This should be decreased to increase training speed
+  n_samples: -1 # -1 means use all sample
+  val_size: 0.1
+  shuffle: True # Whether to shuffle the dataset
+
+checkpoint:
+  checkpoint: null # To load weights of model & optimizer specify the checkpoint directory
+  # If None (or False) the model is trained from the pretrained Huggingface weights
+
+training_args:
+  # These args are fed directly into transformers.TrainingArguments
+  # See https://huggingface.co/transformers/main_classes/trainer.html#trainingarguments
+  # Dirs
+  output_dir: "checkpoints" # Path where the checkpoints will be stored
+  logging_dir: "logs" # Path where the logs will be stored
+  # Training params
+  num_train_epochs: 4 # A single Colab runtime can only fit 2, so save checkpoints inside Google Drive
+  per_device_train_batch_size: 4 # 6 might work for Colab, but it could lead to Cuda errors mid training
+  per_device_eval_batch_size: 4 # 6 might work for Colab, but it could lead to Cuda errors mid training
+  learning_rate: 0.0002 # Will gradually decrease with linear scheduling (default)
+  warmup_steps: 200 # Number of warmup steps for learning rate scheduler
+  seed: 42 # For reproducibility
+  # Strategies
+  evaluation_strategy: "epoch" # Train loss will be printed every 3 hours, but time is saved from absense of evaluation
+  logging_strategy: "steps"
+  save_strategy: "epoch"
+  # Checkpoints/Logging
+  eval_steps: 15000 # Ignored if evaluation_strategy == "epoch"
+  logging_steps: 2000
+  save_steps: 15000 # Ignored if save_strategy == "epoch"
+  log_level: "info"
+  disable_tqdm: False # Print everything
+  # Optimizations
+  fp16: False # Mixed precision, makes training slower on Colab LOL
+  group_by_length: True # Actually helps significantly
+  # saving
+  load_best_model_at_end: False
+  metric_for_best_model: "eval_loss"
+  greater_is_better: False
+  save_total_limit: 1 # only keep the best checkpoint so far
+  # resume_from_checkpoint: 'checkpoint' # Will load checkpoint if
+  overwrite_output_dir: True
