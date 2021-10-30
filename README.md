@@ -30,7 +30,7 @@ using MinHash and LSH. The deduplicated dataset is used for fine-tuning GPT-2.
 
 
 
-:book: Table of contents
+:book: Table of Contents
 ===
 
 <!--ts-->
