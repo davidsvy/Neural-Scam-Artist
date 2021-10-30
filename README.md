@@ -45,15 +45,19 @@ using MinHash and LSH. The deduplicated dataset is used for fine-tuning GPT-2.
   * [➤ Usage](#usage)
 <!--te-->
 
+<a  id="project-description"></a>
+
 :cloud: Project Description
 ===
 
+<a  id="objective"></a>
 Objective
 ---
 
 The goal of this project is create a new dataset of fraudulent emails that can advance the
 research on intelligent email assistants.
 
+<a  id="web-scraper"></a>
 Web Scraper
 ---
 
@@ -62,6 +66,7 @@ At first, a set of thread urls is collected and stored. Then, each thread is sea
 emails. For each thread, at most one email is kept as the rest are duplicates. Metadata 
 (Subject, Date etc) is removed. The resultant dataset is stored inside a csv file.
 
+<a  id="deduplication"></a>
 Deduplication
 ---
 To avoid the quadratic complexity, a cheap alternative is selected: MinHash and LSH using the [datasketch library](https://github.com/ekzhu/datasketch). For each document, this method 
@@ -73,6 +78,7 @@ dataset, [connected components](https://en.wikipedia.org/wiki/Component_(graph_t
 graph are located and for each component only a single node is selected. A 
 [readability criterion](https://en.wikipedia.org/wiki/Readability) is used for selection.
 
+<a  id="gpt-2"></a>
 GPT-2
 ---
 
@@ -81,6 +87,7 @@ A small pretrained GPT-2 model from the
 is fine-tuned on the deduplicated dataset. A collection of ~~cherry-picked~~ randomly selected 
 generated samples can be found here [here](https://github.com/davidsvy/Neural-Scam-Artist/blob/main/generated_samples/generated_samples.txt).
 
+<a  id="shared-files"></a>
 :file_folder: Shared Files
 ===
 
@@ -95,12 +102,12 @@ generated samples can be found here [here](https://github.com/davidsvy/Neural-Sc
 
 
 
-
+<a  id="requirements"></a>
 :toolbox: Requirements
 ===
 See `requirements.txt`.
 
-
+<a  id="installation"></a>
 :gear: Installation
 ===
 ```
@@ -109,6 +116,7 @@ $ cd Neural-Scam-Artist
 $ pip install -r requirements.txt
 ```
 
+<a  id="usage"></a>
 :roll_of_paper: Usage
 ===
 
